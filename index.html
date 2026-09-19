@@ -3,35 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог товаров</title>
+  <title>ShopProject — учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <h1>Учебный интернет-магазин</h1>
+    <div class="site-header">
+      <a class="site-logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="#popular">Популярные товары</a></li>
+          <li><a href="#advantages">Преимущества</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Главная страница проекта</h2>
+    <section class="hero">
+      <h1>Учебный интернет-магазин</h1>
       <p>
-        Это стартовая страница учебного frontend-проекта.
-        В дальнейшем здесь будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг.
+        Смартфоны, наушники и холодильники. Доставка по России за 1–3 дня,
+        гарантия 12 месяцев, оплата картой или при получении.
       </p>
+      <a class="button" href="#popular">Перейти к товарам</a>
     </section>
-        <section>
-      <h2>О магазине</h2>
-      <p>
-        ShopProject — учебный интернет-магазин техники. В каталоге представлены
-        смартфоны, наушники и умные часы. Проект будет постепенно расширяться
-        на следующих практических занятиях.
-      </p>
+
+    <section class="section" id="advantages">
+      <h2>Преимущества проекта</h2>
+      <ul class="advantages-list">
+        <li>доставка по России за 1–3 дня;</li>
+        <li>гарантия 12 месяцев на всю технику;</li>
+        <li>оплата картой онлайн или при получении;</li>
+        <li>поддержка покупателей 7 дней в неделю.</li>
+      </ul>
     </section>
+
+    <section class="section" id="popular">
+      <h2>Популярные товары</h2>
+      <article class="product-card">
+        <h3>Смартфон Aurora 67</h3>
+        <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
+        <p>Цена: 24 990 руб.</p>
+      </article>
+      <article class="product-card">
+        <h3>Наушники BassLine Pro</h3>
+        <p>Беспроводные, активное шумоподавление, до 30 часов работы.</p>
+        <p>Цена: 7 490 руб.</p>
+      </article>
+      <article class="product-card">
+        <h3>volva h16</h3>
+        <p>Экран AMOLED, защита от воды IP68.</p>
+        <p>Цена: 12 990 000 руб.</p>
+      </article>
+    </section>
+
+    <aside class="aside-info">
+      <h2>Доставка и оплата</h2>
+      <ul>
+        <li>курьером по Москве — в день заказа;</li>
+        <li>по России — 1–3 рабочих дня, от 300 руб.;</li>
+        <li>самовывоз из пункта выдачи — бесплатно;</li>
+        <li>оплата картой онлайн или наличными при получении.</li>
+      </ul>
+    </aside>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Учебный проект</p>
+  <footer id="contacts">
+    <p>&copy; 2026 ShopProject. Учебный проект.</p>
+    <p>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
   </footer>
 </body>
 </html>
