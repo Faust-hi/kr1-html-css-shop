@@ -290,3 +290,33 @@ a:focus-visible {
   border-left: var(--border-accent) solid var(--color-success);
   background-color: var(--color-success-bg);
 }
+
+/* ===============================
+   6. Дополнительная навигация
+   =============================== */
+.breadcrumbs {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.breadcrumbs a {
+  color: var(--color-primary);
+}
+
+.breadcrumbs span::before {
+  content: " / ";
+  color: var(--color-muted);
+}
+
+/* Плавная прокрутка к якорям */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Подсветка цели якоря */
+:target {
+  outline: var(--focus-width) dashed var(--color-primary);
+  outline-offset: var(--space-xs);
+}
