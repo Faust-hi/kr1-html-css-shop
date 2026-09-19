@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShopProject — учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <header>
@@ -47,16 +48,25 @@
         <h3>Смартфон Aurora 67</h3>
         <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
         <p>Цена: 24 990 руб.</p>
+        <button class="button product-card__button" type="button" data-product="Смартфон Aurora X1">
+          Заказать
+        </button>
       </article>
       <article class="product-card">
         <h3>Наушники BassLine Pro</h3>
         <p>Беспроводные, активное шумоподавление, до 30 часов работы.</p>
         <p>Цена: 7 490 руб.</p>
+        <button class="button product-card__button" type="button" data-product="Наушники BassLine Pro">
+          Заказать
+        </button>
       </article>
       <article class="product-card">
         <h3>volva h16</h3>
         <p>Экран AMOLED, защита от воды IP68.</p>
         <p>Цена: 12 990 000 руб.</p>
+        <button class="button product-card__button" type="button" data-product="Умные часы Pulse S2">
+          Заказать
+        </button>
       </article>
     </section>
 
@@ -75,5 +85,103 @@
     <p>&copy; 2026 ShopProject. Учебный проект.</p>
     <p>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
   </footer>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 id="order-dialog-title">Оформление заявки</h2>
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+      <input id="selected-product" name="selected-product" type="hidden">
+
+      <div class="form-field">
+        <label for="order-name">Имя</label>
+        <input
+          id="order-name"
+          name="name"
+          type="text"
+          placeholder="Введите ваше имя"
+          minlength="2"
+          autocomplete="given-name"
+          required
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="order-email">E-mail</label>
+        <input
+          id="order-email"
+          name="email"
+          type="email"
+          placeholder="example@mail.ru"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="order-phone">Телефон</label>
+        <input
+          id="order-phone"
+          name="phone"
+          type="tel"
+          inputmode="tel"
+          autocomplete="tel"
+          placeholder="+7 (900) 000-00-00"
+          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+          aria-describedby="order-phone-hint"
+          required
+        >
+        <small id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
+      </div>
+
+      <div class="form-field">
+        <label for="order-date">Дата связи</label>
+        <input
+          id="order-date"
+          name="date"
+          type="date"
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="order-topic">Тема заявки</label>
+        <select id="order-topic" name="topic" required>
+          <option value="">Выберите тему</option>
+          <option value="product">Заказ товара</option>
+          <option value="consultation">Консультация по выбору</option>
+          <option value="delivery">Вопрос по доставке</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="order-comment">Комментарий</label>
+        <textarea
+          id="order-comment"
+          name="comment"
+          rows="4"
+          placeholder="Укажите модель, количество и удобное время звонка"
+        ></textarea>
+      </div>
+
+      <div class="form-field form-field--checkbox">
+        <label>
+          <input
+            id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+          >
+          Я согласен на обработку данных
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+        <button class="button" type="submit">Отправить заявку</button>
+      </div>
+    </form>
+  </dialog>
+
+  <p class="success-message" id="success-message" hidden>
+    Форма успешно отправлена! Мы свяжемся с вами в течение рабочего дня.
+  </p>
 </body>
 </html>
