@@ -133,3 +133,101 @@ footer {
   margin: 0;
   padding-left: 20px;
 }
+
+/* ===============================
+   Модальное окно и форма заявки
+   =============================== */
+.order-dialog {
+  width: min(100% - 32px, 560px);
+  padding: 24px;
+  border: none;
+  border-radius: 12px;
+}
+
+.order-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.order-dialog h2 {
+  margin-top: 0;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.form-field input[type="checkbox"] {
+  width: auto;
+}
+
+.form-field small {
+  display: block;
+  margin-top: 4px;
+  color: #666666;
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+  border-color: #0057b8;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible,
+.form-actions button:focus-visible {
+  outline: 2px solid #0057b8;
+  outline-offset: 3px;
+}
+
+[aria-invalid="true"] {
+  border-color: #b00020;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.form-field--checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+/* Вторичная кнопка — для «Закрыть» в форме заявки */
+.button--secondary {
+  color: #0057b8;
+  background-color: transparent;
+  border: 1px solid #0057b8;
+}
+
+.button--secondary:hover {
+  color: #ffffff;
+  background-color: #0057b8;
+}
+
+.success-message {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 16px;
+  border-left: 4px solid #168a2f;
+  background-color: #eefaf0;
+}
