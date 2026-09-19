@@ -4,15 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Каталог товаров учебного интернет-магазина: смартфоны, наушники и холодильники.">
-  
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="ShopProject">
-  <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="Контакты — ShopProject">
-  <meta property="og:description" content="Смартфоны, наушники и холодильники с фильтрами по категории и цене.">
-  <meta property="og:url" content="https://Faust-hi.github.io/kr1-html-css-shop/contacts.html">
-  <meta property="og:image" content="https://Faust-hi.github.io/kr1-html-css-shop/images/preview.jpg">
-  
   <title>Каталог товаров — ShopProject</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -43,31 +34,63 @@
       <h1>Каталог товаров</h1>
       <p>
         В каталоге собрана техника для работы и отдыха: смартфоны, наушники
-        и холодильники. В дальнейшем здесь появятся фильтры, сортировка
-        и подробные карточки товаров.
+        и холодильники. Используйте фильтры, чтобы подобрать подходящую модель.
       </p>
     </section>
 
-    <section class="section">
-      <h2>Список товаров</h2>
-      <article class="product-card">
-        <h3>Смартфон Aurora 67</h3>
-        <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
-        <p>Цена: 24 990 руб.</p>
-        <a class="button" href="index.html#popular">Подробнее</a>
-      </article>
-      <article class="product-card">
-        <h3>Наушники BassLine Pro</h3>
-        <p>Беспроводные, активное шумоподавление, до 30 часов работы.</p>
-        <p>Цена: 7 490 руб.</p>
-        <a class="button" href="index.html#popular">Подробнее</a>
-      </article>
-      <article class="product-card">
-        <h3>volva h16</h3>
-        <p>Экран AMOLED, защита от воды IP68.</p>
-        <p>Цена: 12 990 000 руб.</p>
-        <a class="button" href="index.html#popular">Подробнее</a>
-      </article>
+    <section class="catalog-layout">
+      <aside class="catalog-filters">
+        <h2>Фильтры</h2>
+        <form class="filters-form" action="#" method="get">
+          <fieldset>
+            <legend>Категория</legend>
+            <label>
+              <input type="checkbox" name="category" value="smartphones">
+              Смартфоны
+            </label>
+            <label>
+              <input type="checkbox" name="category" value="headphones">
+              Наушники
+            </label>
+            <label>
+              <input type="checkbox" name="category" value="watches">
+              Умные часы
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Цена, руб.</legend>
+            <label for="price-from">От</label>
+            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+            <label for="price-to">До</label>
+            <input id="price-to" name="price-to" type="number" min="0" placeholder="30000">
+          </fieldset>
+          <button class="button" type="submit">Применить</button>
+        </form>
+      </aside>
+
+      <section class="catalog-products">
+        <h2>Список товаров</h2>
+        <div class="products-grid">
+          <article class="product-card">
+            <h3>Смартфон Aurora 67</h3>
+            <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
+            <p>Цена: 24 990 руб.</p>
+            <a class="button" href="index.html#popular">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <h3>Наушники BassLine Pro</h3>
+            <p>Беспроводные, активное шумоподавление, до 30 часов работы.</p>
+            <p>Цена: 7 490 руб.</p>
+            <a class="button" href="index.html#popular">Подробнее</a>
+          </article>
+          <article class="product-card">
+            <h3>volva h16</h3>
+            <p>Экран AMOLED, защита от воды IP68.</p>
+            <p>Цена: 12 990 000 руб.</p>
+            <a class="button" href="index.html#popular">Подробнее</a>
+          </article>
+        </div>
+      </section>
     </section>
   </main>
 
