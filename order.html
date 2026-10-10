@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Форма заявки на товар учебного интернет-магазина ShopProject.">
+  <title>Заявка — ShopProject</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="site-header">
+      <a class="site-logo" href="index.html">ShopProject</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="product.html">Товар</a></li>
+          <li><a href="order.html" aria-current="page">Заявка</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1>Оформление заявки</h1>
+      <p>Заполните форму — мы свяжемся с вами в течение рабочего дня.</p>
+      <form class="order-form" action="#" method="post">
+        <div class="form-field">
+          <label for="order-name">Имя</label>
+          <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" required>
+        </div>
+        <div class="form-field">
+          <label for="order-email">E-mail</label>
+          <input id="order-email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-field">
+          <label for="order-phone">Телефон</label>
+          <input id="order-phone" name="phone" type="tel" placeholder="+7 900 000-00-00" required>
+        </div>
+        <div class="form-field">
+          <label for="order-product">Товар</label>
+          <select id="order-product" name="product" required>
+            <option value="">Выберите товар</option>
+            <option value="Смартфон Aurora 67">Смартфон Aurora 67</option>
+            <option value="Наушники BassLine Pro">Наушники BassLine Pro</option>
+            <option value="volva h16">volva h16</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="order-comment">Комментарий</label>
+          <textarea id="order-comment" name="comment" rows="4" placeholder="Комментарий к заявке"></textarea>
+        </div>
+        <div class="form-field form-field--checkbox">
+          <label>
+            <input id="order-agreement" name="agreement" type="checkbox" required>
+            Согласен на обработку персональных данных
+          </label>
+        </div>
+        <div class="form-actions">
+          <button class="button" type="submit">Отправить заявку</button>
+          <button class="button button--secondary" type="reset">Очистить</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 ShopProject. Учебный проект.</p>
+  </footer>
+  
+    <a class="to-top" href="#" aria-label="Наверх">↑</a>
+
+</body>
+</html>

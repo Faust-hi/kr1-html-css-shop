@@ -407,3 +407,88 @@ html {
   border-radius: var(--radius-sm);
   font: inherit;
 }
+/*
+===============================
+8. Кнопка "для скидок"
+=============================== */
+.product-card--discount {
+  border-color: var(--color-danger);
+}
+
+.product-card--discount p:last-of-type {
+  color: var(--color-danger);
+  font-weight: 700;
+}
+/* 
+===============================
+9. Позиционирование, бейдж и таблица
+=============================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.product-card {
+  position: relative;
+}
+
+.product-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: 4px 8px;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.product-card--featured h1 {
+  margin-top: 0;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-width) solid var(--color-border);
+  text-align: left;
+}
+
+.product-table thead th {
+  background-color: var(--color-surface-accent);
+}
+
+.product-table caption {
+  caption-side: top;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: var(--space-sm);
+}
+
+.to-top {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 90;
+  display: block;
+  width: 44px;
+  height: 44px;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 44px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.to-top:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+}
