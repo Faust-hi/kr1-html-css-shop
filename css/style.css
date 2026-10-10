@@ -413,12 +413,20 @@ html {
 =============================== */
 .product-card--discount {
   border-color: var(--color-danger);
+  background-color: #fdecef;
+}
+
+.product-card--discount h3::after {
+  content: " −30%";
+  color: var(--color-danger);
+  font-size: 0.8em;
 }
 
 .product-card--discount p:last-of-type {
   color: var(--color-danger);
   font-weight: 700;
 }
+
 /* 
 ===============================
 9. Позиционирование, бейдж и таблица
