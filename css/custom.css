@@ -1,7 +1,187 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-muted: #666666;
+  --color-primary: #0057b8;
+  --color-primary-dark: #003f86;
+  --color-border: #dddddd;
+  --color-border-strong: #cccccc;
+  --color-surface: #f7f7f7;
+  --color-surface-accent: #eef5ff;
+  --color-danger: #b00020;
+  --color-success: #168a2f;
+  --color-success-bg: #eefaf0;
+  --color-white: #ffffff;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --border-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --font-size-sm: 14px;
+}
+
+:root {
+  --bs-body-color: var(--color-text);
+  --bs-body-bg: var(--color-bg);
+  --bs-link-color: var(--color-primary);
+  --bs-link-hover-color: var(--color-primary-dark);
+  --bs-border-color: var(--color-border);
+  --bs-border-radius: var(--radius-sm);
+  --bs-border-radius-sm: var(--radius-sm);
+  --bs-border-radius-lg: var(--radius-md);
+}
+
 body {
   min-height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.form-check-input:focus-visible,
+.nav-link:focus-visible {
+  outline: var(--focus-width) solid var(--color-primary);
+  outline-offset: var(--focus-offset);
+}
+
+/* Цвета кнопок*/
+.btn-primary {
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary-dark);
+  --bs-btn-hover-border-color: var(--color-primary-dark);
+  --bs-btn-active-bg: var(--color-primary-dark);
+  --bs-btn-active-border-color: var(--color-primary-dark);
+  --bs-btn-disabled-bg: var(--color-primary);
+  --bs-btn-disabled-border-color: var(--color-primary);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-primary);
+  --bs-btn-active-bg: var(--color-primary-dark);
+  --bs-btn-active-border-color: var(--color-primary-dark);
+  --bs-btn-disabled-color: var(--color-primary);
+  --bs-btn-disabled-border-color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.alert-info {
+  --bs-alert-color: #0b3a6f;
+  --bs-alert-bg: var(--color-surface-accent);
+  --bs-alert-border-color: #cfe1f8;
+}
+
+.site-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.site-header__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.site-footer {
+  background-color: #1f2430;
+  color: var(--color-white);
+}
+
+.site-footer a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  text-decoration: underline;
+}
+
+.site-footer__contacts {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.product-card {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+.product-card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--color-surface);
+}
+
+.product-card__price {
+  color: var(--color-primary-dark);
+}
+
+.product-card--discount .product-card__price {
+  color: var(--color-danger);
 }
 
 .placeholder-box {
   min-height: 240px;
+}
+
+.to-top {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 1030;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  line-height: 1;
+}
+
+.product-table caption {
+  caption-side: top;
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+.product-table thead th {
+  background-color: var(--color-surface-accent);
+}
+
+.contacts-card__label {
+  color: var(--color-muted);
+}
+
+.contacts-card__list {
+  margin-bottom: 0;
 }

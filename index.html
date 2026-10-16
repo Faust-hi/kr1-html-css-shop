@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная — Bootstrap Shop</title>
+  <meta name="description" content="Учебный интернет-магазин техники ShopProject: смартфоны, наушники и холодильники с доставкой по России.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShopProject">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="ShopProject — учебный интернет-магазин на Bootstrap">
+  <meta property="og:description" content="Смартфоны, наушники и холодильники с доставкой по России.">
+  <meta property="og:url" content="https://faust-hi.github.io/kr1-html-css-shop/">
+  <meta property="og:image" content="https://faust-hi.github.io/kr1-html-css-shop/images/preview.jpg">
+
+  <title>Главная — ShopProject</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-  <header class="bg-primary text-white py-4">
+  <header class="site-header py-4">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-12 col-md-8">
-          <h1 class="h3 mb-1">Bootstrap Shop</h1>
-          <p class="mb-0 opacity-75">Учебный интернет-магазин на Bootstrap</p>
+          <h1 class="site-header__title h3 mb-1">ShopProject</h1>
+          <p class="mb-0 opacity-75">Учебный интернет-магазин техники на Bootstrap</p>
         </div>
         <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
           <span class="badge bg-light text-primary">КР №2</span>
@@ -24,7 +34,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+      <a class="navbar-brand" href="index.html">ShopProject</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
         aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
         <span class="navbar-toggler-icon"></span>
@@ -35,11 +45,17 @@
           <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
           <li class="nav-item"><a class="nav-link" href="product.html">Товар</a></li>
           <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Дополнительно</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
               <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
+              <li><a class="dropdown-item" href="contacts.html">Контакты и пункт выдачи</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="index.html#advantages">Преимущества</a></li>
+              <li><a class="dropdown-item" href="index.html#popular">Популярные товары</a></li>
+              <li><a class="dropdown-item" href="index.html#contacts">Обратная связь</a></li>
             </ul>
           </li>
         </ul>
@@ -51,42 +67,46 @@
     <section class="container my-5">
       <div class="row align-items-center g-4">
         <div class="col-12 col-lg-6">
-          <h2 class="display-5 fw-bold">Учебный каталог товаров на Bootstrap</h2>
-          <p class="lead text-muted">Проект демонстрирует Bootstrap-сетку, адаптивные колонки и utility-классы.</p>
-          <a class="btn btn-primary btn-lg" href="catalog.html">Перейти в каталог</a>
+          <h2 class="display-5 fw-bold">Каталог техники ShopProject</h2>
+          <p class="lead text-muted">Смартфоны, наушники и холодильники с доставкой по России. Вёрстка собрана на 12-колоночной сетке Bootstrap.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary btn-lg" href="catalog.html">Перейти в каталог</a>
+            <a class="btn btn-outline-primary btn-lg" href="order.html">Оставить заявку</a>
+          </div>
         </div>
         <div class="col-12 col-lg-6">
-          <div class="placeholder-box p-5 bg-light border rounded text-center">
-            <p class="mb-0 text-muted">Здесь может быть изображение или промо-блок.</p>
+          <div class="placeholder-box p-5 bg-light border rounded text-center d-flex align-items-center justify-content-center">
+            <p class="mb-0 text-muted">Здесь может быть изображение или промо-блок магазина.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="container my-5">
+    <section class="container my-5" id="advantages">
       <h2 class="text-center mb-4">Преимущества проекта</h2>
       <div class="row g-4">
         <div class="col-12 col-md-4">
           <div class="p-4 border rounded h-100 bg-white">
             <h3 class="h5">Bootstrap-сетка</h3>
-            <p class="mb-0 text-muted">Страница построена на 12-колоночной системе Bootstrap.</p>
+            <p class="mb-0 text-muted">Страница построена на 12-колоночной системе Bootstrap: container, row, col-*.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="p-4 border rounded h-100 bg-white">
             <h3 class="h5">Адаптивность</h3>
-            <p class="mb-0 text-muted">Колонки меняют ширину в зависимости от размера экрана.</p>
+            <p class="mb-0 text-muted">Колонки меняют ширину в зависимости от размера экрана, отступы заданы классами g-*.</p>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <div class="p-4 border rounded h-100 bg-white">
-            <h3 class="h5">Готовая база</h3>
-            <p class="mb-0 text-muted">Проект готов к добавлению карточек, форм и модальных окон.</p>
+            <h3 class="h5">Единый визуальный стиль</h3>
+            <p class="mb-0 text-muted">Палитра, типографика и оформление карточек настраиваются через дизайн-токены в custom.css.</p>
           </div>
         </div>
       </div>
     </section>
-    <section class="container my-5">
+
+    <section class="container my-5" id="promo">
       <h2 class="text-center mb-4">Акции и новинки</h2>
       <div id="promoCarousel" class="carousel slide shadow-sm rounded" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -99,7 +119,7 @@
             <div class="d-flex align-items-center justify-content-center bg-primary text-white p-5" style="min-height: 220px;">
               <div class="text-center">
                 <h3 class="h4">Скидка 10% на смартфоны</h3>
-                <p class="mb-0">Учебная акция для демонстрации компонента carousel.</p>
+                <p class="mb-0">Акция действует на модели каталога ShopProject.</p>
               </div>
             </div>
           </div>
@@ -115,7 +135,7 @@
             <div class="d-flex align-items-center justify-content-center bg-success text-white p-5" style="min-height: 220px;">
               <div class="text-center">
                 <h3 class="h4">Новые поступления каждую неделю</h3>
-                <p class="mb-0">Следите за каталогом.</p>
+                <p class="mb-0">Следите за каталогом и оставляйте заявки.</p>
               </div>
             </div>
           </div>
@@ -130,56 +150,94 @@
         </button>
       </div>
     </section>
-    <section class="container my-5">
+
+    <section class="container my-5" id="popular">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">Популярные товары</h2>
         <a class="btn btn-outline-primary" href="catalog.html">Все товары</a>
       </div>
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-4">
-          <div class="border rounded h-100 p-4">
-            <span class="badge bg-success mb-3">Новинка</span>
-            <h3 class="h5">Смартфон Aurora 67</h3>
-            <p class="text-muted">AMOLED 6.5", 128 ГБ, камера 50 Мп.</p>
-            <p class="fw-bold mb-3">24 990 руб.</p>
-            <a class="btn btn-primary" href="product.html">Подробнее</a>
-          </div>
+          <article class="card product-card h-100 shadow-sm">
+            <img src="images/aurora-67.jpg" class="card-img-top product-card__image"
+              alt="Смартфон Aurora 67 в упаковке" width="640" height="480" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-success align-self-start mb-2">Новинка</span>
+              <h3 class="card-title h5">Смартфон Aurora 67</h3>
+              <p class="card-text text-muted">AMOLED 6.5", 128 ГБ, камера 50 Мп.</p>
+              <p class="product-card__price fw-bold mb-3 mt-auto">24 990 руб.</p>
+              <a class="btn btn-primary" href="product.html">Подробнее</a>
+            </div>
+          </article>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-          <div class="border rounded h-100 p-4">
-            <span class="badge bg-warning text-dark mb-3">Хит</span>
-            <h3 class="h5">Наушники BassLine Pro</h3>
-            <p class="text-muted">Беспроводные, шумоподавление, 30 часов работы.</p>
-            <p class="fw-bold mb-3">7 490 руб.</p>
-            <a class="btn btn-primary" href="product.html">Подробнее</a>
-          </div>
+          <article class="card product-card h-100 shadow-sm">
+            <img src="images/BassLine-Pro.jpg" class="card-img-top product-card__image"
+              alt="Наушники BassLine Pro" width="640" height="480" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-warning text-dark align-self-start mb-2">Хит</span>
+              <h3 class="card-title h5">Наушники BassLine Pro</h3>
+              <p class="card-text text-muted">Беспроводные, шумоподавление, 30 часов работы.</p>
+              <p class="product-card__price fw-bold mb-3 mt-auto">7 490 руб.</p>
+              <a class="btn btn-primary" href="product.html">Подробнее</a>
+            </div>
+          </article>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
-          <div class="border rounded h-100 p-4">
-            <span class="badge bg-danger mb-3">Скидка</span>
-            <h3 class="h5">volva h16</h3>
-            <p class="text-muted">AMOLED, защита от воды IP68.</p>
-            <p class="fw-bold mb-3">12 990 руб.</p>
-            <a class="btn btn-primary" href="product.html">Подробнее</a>
+          <article class="card product-card product-card--discount h-100 shadow-sm">
+            <img src="images/volva-h16.jpg" class="card-img-top product-card__image"
+              alt="Смартфон volva h16" width="640" height="480" loading="lazy">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-danger align-self-start mb-2">Скидка</span>
+              <h3 class="card-title h5">volva h16</h3>
+              <p class="card-text text-muted">AMOLED, защита от воды IP68.</p>
+              <p class="product-card__price fw-bold mb-3 mt-auto">12 990 руб.</p>
+              <a class="btn btn-primary" href="product.html">Подробнее</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container my-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-7">
+          <h2 class="h3 mb-3">Доставка и оплата</h2>
+          <ul class="mb-0 text-muted">
+            <li>доставка по России — 1–3 дня;</li>
+            <li>самовывоз из пункта выдачи — бесплатно;</li>
+            <li>оплата картой онлайн или наличными при получении.</li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="alert alert-info mb-0" role="alert">
+            Оставить заявку можно на странице <a href="order.html" class="alert-link">«Заявка»</a>
+            или через форму на <a href="contacts.html" class="alert-link">странице контактов</a>.
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-dark text-white py-4 mt-5">
+  <footer class="site-footer py-4 mt-5" id="contacts">
     <div class="container">
       <div class="row align-items-center g-3">
         <div class="col-12 col-md-6">
-          <p class="mb-0">&copy; 2026 Bootstrap Shop. Учебный проект.</p>
+          <p class="mb-1">&copy; 2026 ShopProject. Учебный проект.</p>
+          <p class="site-footer__contacts mb-0">
+            Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru
+          </p>
         </div>
         <div class="col-12 col-md-6 text-md-end">
-          <a class="text-white text-decoration-none me-3" href="catalog.html">Каталог</a>
-          <a class="text-white text-decoration-none" href="order.html">Заявка</a>
+          <a class="me-3" href="catalog.html">Каталог</a>
+          <a class="me-3" href="order.html">Заявка</a>
+          <a href="contacts.html">Контакты</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <a class="to-top btn btn-primary rounded-circle" href="#" aria-label="Наверх">↑</a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>

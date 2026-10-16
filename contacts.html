@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контакты учебного интернет-магазина ShopProject: телефон, e-mail, адрес пункта выдачи и режим работы.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShopProject">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Контакты — ShopProject">
+  <meta property="og:description" content="Телефон, e-mail, адрес пункта выдачи и режим работы учебного интернет-магазина.">
+  <meta property="og:url" content="https://faust-hi.github.io/kr1-html-css-shop/contacts.html">
+  <meta property="og:image" content="https://faust-hi.github.io/kr1-html-css-shop/images/preview.jpg">
+
+  <title>Контакты — ShopProject</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ShopProject</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Товар</a></li>
+          <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacts.html">Контакты</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Дополнительно</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
+              <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
+              <li><a class="dropdown-item" href="index.html#contacts">Обратная связь на главной</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+      </ol>
+    </nav>
+
+    <h1 class="h2 mb-3">Контакты</h1>
+    <p class="lead text-muted">
+      Ответим на вопросы о товарах, доставке и оплате. Заявку можно оставить
+      через форму на странице «Заявка» или в модальном окне каталога.
+    </p>
+
+    <div class="row g-4 mt-2">
+      <div class="col-12 col-lg-7">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-white fw-bold">Контактные данные</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped align-middle mb-0">
+                <caption class="text-muted">Магазин ShopProject, учебный проект</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Параметр</th>
+                    <th scope="col">Значение</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row" class="contacts-card__label">Телефон</th><td>+53 (900) 123-45-67</td></tr>
+                  <tr><th scope="row" class="contacts-card__label">E-mail</th><td>infopole@shopproject.ru</td></tr>
+                  <tr><th scope="row" class="contacts-card__label">Пункт выдачи</th><td>г. Москва, ул. Учебная, д. 1</td></tr>
+                  <tr><th scope="row" class="contacts-card__label">Режим работы</th><td>пн–пт, 10:00–19:00</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5">
+        <div class="card shadow-sm h-100">
+          <div class="card-body d-flex flex-column">
+            <h2 class="h5">Как с нами связаться</h2>
+            <ul class="contacts-card__list text-muted ps-3">
+              <li>заявка на товар — страница «Заявка»;</li>
+              <li>быстрый вопрос — модальное окно в каталоге;</li>
+              <li>самовывоз — пункт выдачи по адресу выше.</li>
+            </ul>
+            <div class="alert alert-info mt-3" role="alert">
+              Доставка по России занимает 1–3 дня, самовывоз бесплатный.
+            </div>
+            <div class="d-flex flex-wrap gap-2 mt-auto">
+              <a class="btn btn-primary" href="order.html">Оставить заявку</a>
+              <a class="btn btn-outline-primary" href="catalog.html">В каталог</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="mt-5" id="feedback">
+      <h2 class="h4 mb-3">Обратная связь</h2>
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <form action="#" method="post">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="feedback-name" class="form-label">Имя *</label>
+                    <input id="feedback-name" name="name" type="text" class="form-control" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="feedback-email" class="form-label">E-mail *</label>
+                    <input id="feedback-email" name="email" type="email" class="form-control" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="feedback-message" class="form-label">Сообщение *</label>
+                    <textarea id="feedback-message" name="message" class="form-control" rows="4" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input id="feedback-agree" class="form-check-input" type="checkbox" name="agreement" required>
+                      <label class="form-check-label" for="feedback-agree">Я согласен на обработку данных *</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Отправить сообщение</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-1">&copy; 2026 ShopProject. Учебный проект.</p>
+          <p class="site-footer__contacts mb-0">Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a class="me-3" href="index.html">Главная</a>
+          <a class="me-3" href="catalog.html">Каталог</a>
+          <a href="order.html">Заявка</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="to-top btn btn-primary rounded-circle" href="#" aria-label="Наверх">↑</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
