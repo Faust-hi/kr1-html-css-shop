@@ -3,77 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Форма заявки на товар учебного интернет-магазина ShopProject.">
-  <title>Заявка — ShopProject</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <title>Заявка — Bootstrap Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
-
-<body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="product.html">Товар</a></li>
-          <li><a href="order.html" aria-current="page">Заявка</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Товар</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="order.html">Заявка</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <section class="section">
-      <h1>Оформление заявки</h1>
-      <p>Заполните форму — мы свяжемся с вами в течение рабочего дня.</p>
-      <form class="order-form" action="#" method="post">
-        <div class="form-field">
-          <label for="order-name">Имя</label>
-          <input id="order-name" name="name" type="text" placeholder="Введите ваше имя" required>
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h1 class="h4 mb-0">Форма заявки</h1>
+          </div>
+          <div class="card-body">
+            <div class="alert alert-info" role="alert">Поля со звёздочкой обязательны.</div>
+            <form>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="order-name" class="form-label">Имя *</label>
+                  <input id="order-name" name="name" type="text" class="form-control" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="order-email" class="form-label">E-mail *</label>
+                  <input id="order-email" name="email" type="email" class="form-control" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="order-phone" class="form-label">Телефон</label>
+                  <div class="input-group">
+                    <span class="input-group-text">+7</span>
+                    <input id="order-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00">
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label for="order-product" class="form-label">Товар</label>
+                  <select id="order-product" name="product" class="form-select">
+                    <option selected>Выберите товар</option>
+                    <option value="product-1">Смартфон Aurora 67</option>
+                    <option value="product-2">Наушники BassLine Pro</option>
+                    <option value="product-3">volva h16</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="order-comment" class="form-label">Комментарий</label>
+                  <textarea id="order-comment" name="comment" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input id="order-agree" class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label" for="order-agree">Я согласен на обработку данных *</label>
+                  </div>
+                </div>
+                <div class="col-12 d-flex gap-2">
+                  <button class="btn btn-primary" type="submit">Отправить заявку</button>
+                  <button class="btn btn-outline-secondary" type="reset">Очистить</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="form-field">
-          <label for="order-email">E-mail</label>
-          <input id="order-email" name="email" type="email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-field">
-          <label for="order-phone">Телефон</label>
-          <input id="order-phone" name="phone" type="tel" placeholder="+7 900 000-00-00" required>
-        </div>
-        <div class="form-field">
-          <label for="order-product">Товар</label>
-          <select id="order-product" name="product" required>
-            <option value="">Выберите товар</option>
-            <option value="Смартфон Aurora 67">Смартфон Aurora 67</option>
-            <option value="Наушники BassLine Pro">Наушники BassLine Pro</option>
-            <option value="volva h16">volva h16</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label for="order-comment">Комментарий</label>
-          <textarea id="order-comment" name="comment" rows="4" placeholder="Комментарий к заявке"></textarea>
-        </div>
-        <div class="form-field form-field--checkbox">
-          <label>
-            <input id="order-agreement" name="agreement" type="checkbox" required>
-            Согласен на обработку персональных данных
-          </label>
-        </div>
-        <div class="form-actions">
-          <button class="button" type="submit">Отправить заявку</button>
-          <button class="button button--secondary" type="reset">Очистить</button>
-        </div>
-      </form>
-    </section>
+      </div>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 ShopProject. Учебный проект.</p>
-  </footer>
-  
-    <a class="to-top" href="#" aria-label="Наверх">↑</a>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
