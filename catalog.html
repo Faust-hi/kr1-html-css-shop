@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина: смартфоны, наушники и холодильники.">
-  
+  <meta name="description" content="Каталог товаров ShopProject на Bootstrap: смартфоны, наушники и холодильники с фильтрами по категории и цене.">
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ShopProject">
   <meta property="og:locale" content="ru_RU">
@@ -13,114 +13,257 @@
   <meta property="og:url" content="https://Faust-hi.github.io/kr1-html-css-shop/catalog.html">
   <meta property="og:image" content="https://Faust-hi.github.io/kr1-html-css-shop/images/preview.jpg">
 
-  <title>Каталог товаров — ShopProject</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Каталог товаров — ShopProject на Bootstrap</title>
+
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
-<body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html" aria-current="page">Каталог</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-          <li><a href="product.html">Товар</a></li>
-          <li><a href="order.html">Заявка</a></li>
-          <li><a href="index.html#advantages">Преимущества</a></li>
-          <li><a href="index.html#popular">Популярные товары</a></li>
-          <li><a href="index.html#contacts">Обратная связь</a></li>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark site-navbar sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold" href="index.html">ShopProject</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+              aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="catalog.html">Каталог</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Товар</a></li>
+          <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Дополнительно</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="index.html#popular">Популярные товары</a></li>
+              <li><a class="dropdown-item" href="index.html#delivery">Доставка и оплата</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html#filters">Фильтры каталога</a></li>
+            </ul>
+          </li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a>
-      <span aria-current="page">Каталог</span>
+  <main class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Каталог</li>
+      </ol>
     </nav>
 
-    <section class="section">
-      <h1>Каталог товаров</h1>
-      <p>
-        В каталоге собрана техника для работы и отдыха: смартфоны, наушники
-        и холодильники. Используйте фильтры, чтобы подобрать подходящую модель.
-      </p>
-    </section>
+    <div class="alert alert-info" role="alert">
+      Выберите товар из каталога. Карточки оформлены компонентом Bootstrap <code>card</code>.
+    </div>
 
-    <section class="catalog-layout">
-      <aside class="catalog-filters">
-        <h2>Фильтры</h2>
-        <form class="filters-form" action="#" method="get">
-          <fieldset>
-            <legend>Категория</legend>
-            <label>
-              <input type="checkbox" name="category" value="smartphones">
-              Смартфоны
-            </label>
-            <label>
-              <input type="checkbox" name="category" value="headphones">
-              Наушники
-            </label>
-            <label>
-              <input type="checkbox" name="category" value="watches">
-              Умные часы
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>Цена, руб.</legend>
-            <label for="price-from">От</label>
-            <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
-            <label for="price-to">До</label>
-            <input id="price-to" name="price-to" type="number" min="0" placeholder="30000">
-          </fieldset>
-          <button class="button" type="submit">Применить</button>
-        </form>
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+      <h1 class="h2 mb-0">Каталог товаров</h1>
+      <a class="btn btn-outline-primary" href="order.html">Оставить заявку</a>
+    </div>
+
+    <div class="row g-4">
+      <aside class="col-12 col-lg-3" id="filters">
+        <!-- ================= Фильтры ================= -->
+
+        <div class="card shadow-sm sticky-lg-top filters-sticky">
+          <div class="card-body">
+            <h2 class="h5 card-title">Фильтры</h2>
+            <form action="#" method="get">
+              <fieldset class="mb-3">
+                <legend class="fs-6 fw-bold">Категория</legend>
+                <div class="form-check">
+                  <input id="cat-phones" class="form-check-input" type="checkbox"
+                         name="category" value="smartphones">
+                  <label class="form-check-label" for="cat-phones">Смартфоны</label>
+                </div>
+                <div class="form-check">
+                  <input id="cat-headphones" class="form-check-input" type="checkbox"
+                         name="category" value="headphones">
+                  <label class="form-check-label" for="cat-headphones">Наушники</label>
+                </div>
+                <div class="form-check">
+                  <input id="cat-fridges" class="form-check-input" type="checkbox"
+                         name="category" value="fridges">
+                  <label class="form-check-label" for="cat-fridges">Холодильники</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="mb-3">
+                <legend class="fs-6 fw-bold">Цена, руб.</legend>
+                <div class="input-group input-group-sm mb-2">
+                  <span class="input-group-text">от</span>
+                  <input id="price-from" class="form-control" type="number" min="0"
+                         placeholder="0" name="price-from" aria-label="Цена от">
+                </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-text">до</span>
+                  <input id="price-to" class="form-control" type="number" min="0"
+                         placeholder="30000" name="price-to" aria-label="Цена до">
+                </div>
+              </fieldset>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">Применить</button>
+                <button class="btn btn-outline-secondary btn-sm" type="reset">Сбросить</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </aside>
 
-      <section class="catalog-products">
-        <h2>Список товаров</h2>
-        <div class="products-grid">
-          <article class="product-card">
-            <img src="images/aurora-67.jpg"
-              alt="Смартфон Aurora 67 с экраном AMOLED"
-              loading="lazy">
-            <h3>Смартфон Aurora 67</h3>
-            <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
-            <p>Цена: 24 990 руб.</p>
-            <a class="button" href="index.html#popular">Подробнее</a>
-          </article>
-          <article class="product-card">
-            <img src="images/BassLine-Pro.jpg"
-              alt="BASS BOOST"
-              loading="lazy">
-            <h3>Наушники BassLine Pro</h3>
-            <p>Беспроводные, активное шумоподавление, до 30 часов работы.</p>
-            <p>Цена: 7 490 руб.</p>
-            <a class="button" href="index.html#popular">Подробнее</a>
-          </article>
-          <article class="product-card product-card--discount">
-            <img src="images/volva-h16.jpg"
-              alt="ХОРОШ"
-              loading="lazy">
-            <h3>volva h16</h3>
-            <p>Экран AMOLED, защита от воды IP68.</p>
-            <p>Цена: 12 990 000 руб.</p>
-            <a class="button" href="index.html#popular">Подробнее</a>
-          </article>
+      <section class="col-12 col-lg-9">
+        <!-- ================= Товары ================= -->
+
+        <h2 class="h5 mb-3">Найдено товаров: 3</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img src="images/aurora-67.jpg" class="card-img-top"
+                   alt="Смартфон Aurora 67 в упаковке" loading="lazy">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="card-title h5 mb-0">Смартфон Aurora 67</h3>
+                  <span class="badge bg-success">Хит</span>
+                </div>
+                <p class="card-text text-muted">
+                  Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.
+                </p>
+                <p class="product-price fs-5 mt-auto mb-3">24 990 руб.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary" href="product.html">Подробнее</a>
+                  <button class="btn btn-outline-primary" type="button"
+                          data-bs-toggle="modal" data-bs-target="#orderModal">Заказать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img src="images/BassLine-Pro.jpg" class="card-img-top"
+                   alt="Наушники BassLine Pro" loading="lazy">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="card-title h5 mb-0">Наушники BassLine Pro</h3>
+                  <span class="badge bg-warning text-dark">Новинка</span>
+                </div>
+                <p class="card-text text-muted">
+                  Беспроводные, активное шумоподавление, до 30 часов работы.
+                </p>
+                <p class="product-price fs-5 mt-auto mb-3">7 490 руб.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary" href="product.html">Подробнее</a>
+                  <button class="btn btn-outline-primary" type="button"
+                          data-bs-toggle="modal" data-bs-target="#orderModal">Заказать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <img src="images/volva-h16.jpg" class="card-img-top"
+                   alt="Смартфон volva h16" loading="lazy">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h3 class="card-title h5 mb-0">volva h16</h3>
+                  <span class="badge bg-danger">Скидка</span>
+                </div>
+                <p class="card-text text-muted">
+                  Экран AMOLED, защита от воды IP68.
+                </p>
+                <p class="product-price fs-5 mt-auto mb-3">12 990 000 руб.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary" href="product.html">Подробнее</a>
+                  <button class="btn btn-outline-primary" type="button"
+                          data-bs-toggle="modal" data-bs-target="#orderModal">Заказать</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 ShopProject. Учебный проект.</p>
-    <p>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
+  <footer class="site-footer py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-0">&copy; 2026 ShopProject. Учебный проект.</p>
+          <p class="mb-0 small">Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a class="me-3" href="catalog.html">Каталог</a>
+          <a class="me-3" href="order.html">Заявка</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+      </div>
+    </div>
   </footer>
-  
-    <a class="to-top" href="#" aria-label="Наверх">↑</a>
 
+  <!-- ================= Модальное окно быстрой заявки ================= -->
+
+  <div class="modal fade" id="orderModal" tabindex="-1"
+       aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="orderModalLabel">Быстрая заявка</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted">Оставьте контактные данные, и менеджер свяжется с вами.</p>
+          <form data-toast-form>
+            <div class="mb-3">
+              <label for="modal-name" class="form-label">Имя *</label>
+              <input id="modal-name" name="name" type="text" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input id="modal-phone" name="phone" type="tel" class="form-control"
+                       placeholder="900 000-00-00" required>
+              </div>
+            </div>
+            <div class="form-check mb-3">
+              <input id="modal-agree" name="agreement" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label" for="modal-agree">Согласен на обработку данных *</label>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">Отправить</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 start-0 p-3">
+    <div id="formToast" class="toast align-items-center text-bg-success border-0" role="alert"
+         aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">Заявка отправлена. Мы свяжемся с вами в течение рабочего дня.</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"
+     aria-label="Наверх">↑</a>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

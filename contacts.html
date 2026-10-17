@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Контакты учебного интернет-магазина: телефон, e-mail, адрес пункта выдачи и режим работы.">
-  
+  <meta name="description" content="Контакты учебного интернет-магазина ShopProject: телефон, e-mail, пункт выдачи и режим работы.">
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ShopProject">
   <meta property="og:locale" content="ru_RU">
@@ -13,64 +13,117 @@
   <meta property="og:url" content="https://Faust-hi.github.io/kr1-html-css-shop/contacts.html">
   <meta property="og:image" content="https://Faust-hi.github.io/kr1-html-css-shop/images/preview.jpg">
 
+  <title>Контакты — ShopProject на Bootstrap</title>
 
-  <title>Контакты — ShopProject</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="contacts.html" aria-current="page">Контакты</a></li>
-          <li><a href="product.html">Товар</a></li>
-          <li><a href="order.html">Заявка</a></li>
-          <li><a href="index.html#advantages">Преимущества</a></li>
-          <li><a href="index.html#popular">Популярные товары</a></li>
-          <li><a href="index.html#contacts">Обратная связь</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a>
-      <span aria-current="page">Контакты</span>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark site-navbar sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold" href="index.html">ShopProject</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+              aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Товар</a></li>
+          <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="contacts.html">Контакты</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Дополнительно</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="index.html#popular">Популярные товары</a></li>
+              <li><a class="dropdown-item" href="index.html#delivery">Доставка и оплата</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html#filters">Фильтры каталога</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+      </ol>
     </nav>
 
-    <section class="section">
-      <h1>Контакты</h1>
-      <p>
-        Ответим на вопросы о товарах, доставке и оплате. Заявку можно оставить
-        через форму на главной странице.
-      </p>
-      <ul>
-        <li>Телефон: +53 (900) 123-45-67</li>
-        <li>E-mail: infopole@shopproject.ru</li>
-        <li>Пункт выдачи: г. Москва, ул. Учебная, д. 1</li>
-        <li>Режим работы: пн–пт, 10:00–19:00</li>
-      </ul>
-    </section>
+    <h1 class="h2 mb-3">Контакты</h1>
+    <p class="text-muted">
+      Ответим на вопросы о товарах, доставке и оплате.
+    </p>
 
-    <section class="section" id="feedback">
-      <h2>Обратная связь</h2>
-      <p>
-        Для отправки заявки используйте форму в модальном окне на главной странице.
-      </p>
-      <a class="button" href="index.html#contacts">Перейти к форме</a>
-    </section>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="h5 card-title">Связаться с нами</h2>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-1">Телефон: +53 (900) 123-45-67</li>
+              <li class="mb-1">E-mail: infopole@shopproject.ru</li>
+              <li class="mb-1">Пункт выдачи: г. Москва, ул. Учебная, д. 1</li>
+              <li>Режим работы: пн–пт, 10:00–19:00</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h2 class="h5 card-title">Режим работы</h2>
+            <div class="table-responsive">
+              <table class="table table-striped align-middle mb-0">
+                <tbody>
+                  <tr><th scope="row">Понедельник–пятница</th><td>10:00–19:00</td></tr>
+                  <tr><th scope="row">Суббота</th><td>11:00–16:00</td></tr>
+                  <tr><th scope="row">Воскресенье</th><td>выходной</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-success" role="alert">
+      Заявку можно оставить на странице
+      <a href="order.html" class="alert-link">«Заявка»</a>.
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2026 ShopProject. Учебный проект.</p>
-    <p>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
+  <footer class="site-footer py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-0">&copy; 2026 ShopProject. Учебный проект.</p>
+          <p class="mb-0 small">Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a class="me-3" href="catalog.html">Каталог</a>
+          <a class="me-3" href="order.html">Заявка</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+      </div>
+    </div>
   </footer>
-  
-    <a class="to-top" href="#" aria-label="Наверх">↑</a>
 
+  <a href="#" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"
+     aria-label="Наверх">↑</a>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

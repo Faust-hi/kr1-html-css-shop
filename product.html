@@ -3,70 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Смартфон Aurora 67: характеристики, цена и оформление заявки.">
-  <title>Смартфон Aurora 67 — ShopProject</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
+  <meta name="description" content="Смартфон Aurora 67: характеристики, цена и оформление заявки в учебном интернет-магазине ShopProject.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShopProject">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Смартфон Aurora 67 — ShopProject">
+  <meta property="og:description" content="Экран AMOLED 6.5&quot;, 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.">
+  <meta property="og:url" content="https://Faust-hi.github.io/kr1-html-css-shop/product.html">
+  <meta property="og:image" content="https://Faust-hi.github.io/kr1-html-css-shop/images/aurora-67.jpg">
+
+  <title>Смартфон Aurora 67 — ShopProject на Bootstrap</title>
+
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
-  <header>
-    <div class="site-header">
-      <a class="site-logo" href="index.html">ShopProject</a>
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Каталог</a></li>
-          <li><a href="product.html" aria-current="page">Товар</a></li>
-          <li><a href="order.html">Заявка</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
+  <nav class="navbar navbar-expand-lg navbar-dark site-navbar sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold" href="index.html">ShopProject</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+              aria-expanded="false" aria-label="Переключить навигацию">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalog.html">Каталог</a></li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="product.html">Товар</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="order.html">Заявка</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Дополнительно</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="index.html#popular">Популярные товары</a></li>
+              <li><a class="dropdown-item" href="index.html#delivery">Доставка и оплата</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html#filters">Фильтры каталога</a></li>
+            </ul>
+          </li>
         </ul>
-      </nav>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a href="index.html">Главная</a>
-      <span>Каталог</span>
-      <span>Смартфон Aurora 67</span>
+  <main class="container my-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumb-item"><a href="catalog.html">Каталог</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Смартфон Aurora 67</li>
+      </ol>
     </nav>
 
-    <section class="section">
-      <article class="product-card product-card--featured">
-        <span class="product-card__badge">Хит</span>
-        <h1>Смартфон Aurora 67</h1>
-        <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
-        <p>Цена: 24 990 руб.</p>
-        <a class="button" href="order.html">Оформить заявку</a>
-        <a class="button button--secondary" href="catalog.html">Назад в каталог</a>
-      </article>
+    <div class="row g-4">
+      <div class="col-12 col-lg-6">
+        <div class="card shadow-sm">
+          <img src="images/aurora-67.jpg" class="card-img-top product-image"
+               alt="Смартфон Aurora 67 с экраном AMOLED">
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <span class="badge bg-success mb-3">Хит</span>
+        <h1 class="h2">Смартфон Aurora 67</h1>
+        <p class="lead text-muted">
+          Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.
+        </p>
+        <p class="product-price fs-3">24 990 руб.</p>
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <a class="btn btn-primary btn-lg" href="order.html">Оформить заявку</a>
+          <a class="btn btn-outline-secondary btn-lg" href="catalog.html">Назад в каталог</a>
+        </div>
+        <div class="alert alert-warning" role="alert">
+          Учебная карточка товара. Данные используются для демонстрации Bootstrap-компонентов.
+        </div>
+      </div>
+    </div>
+
+    <section class="mt-5">
+      <!-- ================= Характеристики ================= -->
+
+      <h2 class="h4 mb-3">Характеристики</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Параметр</th>
+              <th scope="col">Значение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Категория</th><td>Смартфоны</td></tr>
+            <tr><th scope="row">Экран</th><td>AMOLED 6.5"</td></tr>
+            <tr><th scope="row">Память</th><td>128 ГБ</td></tr>
+            <tr><th scope="row">Камера</th><td>50 Мп</td></tr>
+            <tr><th scope="row">Батарея</th><td>5000 мА·ч</td></tr>
+            <tr><th scope="row">Цена</th><td>24 990 руб.</td></tr>
+            <tr><th scope="row">Наличие</th><td><span class="badge bg-success">В наличии</span></td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <section class="section">
-      <h2>Характеристики</h2>
-      <table class="product-table">
-        <caption>Характеристики товара</caption>
-        <thead>
-          <tr><th>Параметр</th><th>Значение</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Категория</td><td>Смартфоны</td></tr>
-          <tr><td>Экран</td><td>AMOLED 6.5"</td></tr>
-          <tr><td>Память</td><td>128 ГБ</td></tr>
-          <tr><td>Камера</td><td>50 Мп</td></tr>
-          <tr><td>Батарея</td><td>5000 мА·ч</td></tr>
-          <tr><td>Цена</td><td>24 990 руб.</td></tr>
-          <tr><td>Наличие</td><td>В наличии</td></tr>
-        </tbody>
-      </table>
+    <section class="mt-5">
+      <!-- ================= Частые вопросы (accordion) ================= -->
+
+      <h2 class="h4 mb-3">Частые вопросы</h2>
+      <div class="accordion accordion-flush" id="faqAccordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+              Можно ли оформить заявку без регистрации?
+            </button>
+          </h3>
+          <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Да, в учебном проекте заявка оформляется без регистрации — достаточно заполнить
+              форму на странице «Заявка».
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+              Где используется Bootstrap?
+            </button>
+          </h3>
+          <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Bootstrap используется для сетки, карточек, форм, навигации, сообщений
+              и модальных окон.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+              Сколько идёт доставка?
+            </button>
+          </h3>
+          <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Курьером по Москве — в день заказа, по России — 1–3 рабочих дня.
+              Самовывоз из пункта выдачи бесплатный.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-5">
+      <h2 class="h4 mb-3">Похожие товары</h2>
+      <!-- ================= Похожие товары (carousel) ================= -->
+
+      <div id="similarCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#similarCarousel" data-bs-slide-to="0"
+                  class="active" aria-current="true" aria-label="Слайд 1"></button>
+          <button type="button" data-bs-target="#similarCarousel" data-bs-slide-to="1"
+                  aria-label="Слайд 2"></button>
+        </div>
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <img src="images/BassLine-Pro.jpg" class="d-block w-100 carousel-img"
+                 alt="Наушники BassLine Pro">
+            <div class="carousel-caption d-none d-md-block">
+              <h3 class="h5">Наушники BassLine Pro</h3>
+              <p class="mb-0">7 490 руб.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/volva-h16.jpg" class="d-block w-100 carousel-img"
+                 alt="Смартфон volva h16">
+            <div class="carousel-caption d-none d-md-block">
+              <h3 class="h5">volva h16</h3>
+              <p class="mb-0">12 990 000 руб.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button"
+                data-bs-target="#similarCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Назад</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+                data-bs-target="#similarCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Вперёд</span>
+        </button>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 ShopProject. Учебный проект.</p>
+  <footer class="site-footer py-4 mt-5">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-12 col-md-6">
+          <p class="mb-0">&copy; 2026 ShopProject. Учебный проект.</p>
+          <p class="mb-0 small">Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+          <a class="me-3" href="catalog.html">Каталог</a>
+          <a class="me-3" href="order.html">Заявка</a>
+          <a href="contacts.html">Контакты</a>
+        </div>
+      </div>
+    </div>
   </footer>
-    <a class="to-top" href="#" aria-label="Наверх">↑</a>
 
+  <a href="#" class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4"
+     aria-label="Наверх">↑</a>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

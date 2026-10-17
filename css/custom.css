@@ -1,0 +1,91 @@
+:root {
+  --color-primary: #0057b8;
+  --color-primary-dark: #003f86;
+  --color-surface: #f7f7f7;
+  --color-surface-accent: #eef5ff;
+  --color-danger: #b00020;
+  --color-success: #168a2f;
+  --color-success-bg: #eefaf0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary-dark);
+  --bs-btn-hover-border-color: var(--color-primary-dark);
+  --bs-btn-active-bg: var(--color-primary-dark);
+  --bs-btn-active-border-color: var(--color-primary-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-primary);
+  --bs-btn-active-bg: var(--color-primary-dark);
+  --bs-btn-active-border-color: var(--color-primary-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.placeholder-box {
+  min-height: 240px;
+}
+
+.placeholder-image {
+  min-height: 320px;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.carousel-img {
+  height: 320px;
+  object-fit: cover;
+}
+
+.product-image {
+  height: 360px;
+  object-fit: cover;
+}
+
+.product-price {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.bg-soft {
+  background-color: var(--color-surface);
+}
+
+.site-navbar {
+  background-color: var(--color-primary-dark);
+}
+
+.site-footer {
+  background-color: #1f2430;
+  color: #ffffff;
+}
+
+.site-footer a {
+  color: #cfd6e4;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.filters-sticky {
+  top: 5rem;
+}
