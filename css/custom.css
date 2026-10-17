@@ -1,15 +1,88 @@
+/* Дизайн-слой поверх Bootstrap: направление hermes.nousresearch.com
+   (электрик-синий, бумага, чернила, сжатые заголовки, mono-детали). */
+
 :root {
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
-  --color-surface: #f7f7f7;
-  --color-surface-accent: #eef5ff;
-  --color-danger: #b00020;
+  --color-primary: #0000f2;
+  --color-primary-dark: #000091;
+  --color-ink: #1a1a1a;
+  --color-paper: #fdfdfd;
+  --color-surface: #f2f2f2;
+  --color-surface-accent: #eef0ff;
+  --color-hairline: #d9d9df;
+  --color-danger: #f20000;
   --color-success: #168a2f;
   --color-success-bg: #eefaf0;
+  --font-display: "Arial Narrow", "Liberation Sans Narrow", "PT Sans Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --grid-line: rgba(255, 255, 255, 0.16);
+  --frame-w: 5px;
+
+  --bs-primary: #0000f2;
+  --bs-primary-rgb: 0, 0, 242;
+  --bs-link-color-rgb: 0, 0, 242;
+  --bs-link-hover-color-rgb: 0, 0, 145;
+  --bs-border-radius: 6px;
+  --bs-border-color: var(--color-hairline);
+  --bs-body-color: var(--color-ink);
+  --bs-body-bg: var(--color-paper);
 }
 
 body {
   min-height: 100vh;
+  background-color: var(--color-paper);
+}
+
+/* Рамка кадра вокруг вьюпорта — фирменный приём Hermes */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border: var(--frame-w) solid var(--color-primary);
+  pointer-events: none;
+  z-index: 2000;
+}
+
+/* Сжатые капсовые заголовки в духе Rules Gothic */
+h1, .display-5 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.6rem, 6.5vw, 4.75rem);
+}
+
+h1.fw-bold {
+  font-weight: 400 !important;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+}
+
+h3, h4, h5, h6 {
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: rgba(0, 0, 242, 0.16);
+}
+
+.btn {
+  --bs-btn-border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.btn-lg {
+  font-size: 0.95rem;
 }
 
 .btn-primary {
@@ -58,26 +131,166 @@ body {
   object-fit: cover;
 }
 
+.card {
+  --bs-card-border-radius: 6px;
+  --bs-card-bg: var(--color-surface);
+  --bs-card-cap-bg: var(--color-surface);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.shadow-sm {
+  box-shadow: none;
+}
+
+.carousel {
+  border: 1px solid var(--color-hairline);
+}
+
+.site-navbar {
+  background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.site-navbar .nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.navbar-brand {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dropdown-item {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* Синий герой с белой инженерной сеткой — как главная Hermes */
+.bg-soft {
+  background-color: var(--color-primary);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: #ffffff;
+}
+
+.bg-soft .lead,
+.bg-soft .text-muted {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.bg-soft .btn-primary {
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #ffffff;
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-surface-accent);
+  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-hover-color: var(--color-primary-dark);
+  --bs-btn-active-bg: var(--color-surface);
+  --bs-btn-active-border-color: #ffffff;
+  --bs-btn-active-color: var(--color-primary-dark);
+}
+
+.bg-soft .btn-outline-primary {
+  --bs-btn-color: #ffffff;
+  --bs-btn-border-color: rgba(255, 255, 255, 0.65);
+  --bs-btn-hover-bg: #ffffff;
+  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-hover-color: var(--color-primary);
+  --bs-btn-active-bg: rgba(255, 255, 255, 0.85);
+  --bs-btn-active-border-color: #ffffff;
+  --bs-btn-active-color: var(--color-primary);
+}
+
+.bg-soft .carousel {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.hero-repo {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 6px;
+}
+
+.hero-repo a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.hero-repo a:hover {
+  text-decoration: underline;
+}
+
+#advantages > h2::before,
+#popular h2::before,
+#delivery > h2::before {
+  content: "#1  ";
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+#popular h2::before {
+  content: "#2  ";
+}
+#delivery > h2::before {
+  content: "#3  ";
+}
+
+.badge {
+  --bs-border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.bg-warning {
+  background-color: var(--color-primary);
+}
+
+.badge.bg-warning.text-dark {
+  color: #ffffff !important;
+}
+
+.breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
 .product-price {
+  font-family: var(--font-mono);
   font-weight: 700;
   color: var(--color-primary-dark);
 }
 
-.bg-soft {
-  background-color: var(--color-surface);
-}
-
-.site-navbar {
-  background-color: var(--color-primary-dark);
-}
-
+/* Синий футер — как на Hermes */
 .site-footer {
-  background-color: #1f2430;
+  background-color: var(--color-primary);
   color: #ffffff;
 }
 
+.site-footer .text-muted {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
 .site-footer a {
-  color: #cfd6e4;
+  color: rgba(255, 255, 255, 0.78);
   text-decoration: none;
 }
 
