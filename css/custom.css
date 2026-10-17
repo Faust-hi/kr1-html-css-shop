@@ -6,15 +6,17 @@
   --color-primary-dark: #000091;
   --color-ink: #1a1a1a;
   --color-paper: #fdfdfd;
+  --color-canvas: #0000f2;
   --color-surface: #f2f2f2;
   --color-surface-accent: #eef0ff;
   --color-hairline: #d9d9df;
+  --color-outline: #c48282;
   --color-danger: #f20000;
   --color-success: #168a2f;
   --color-success-bg: #eefaf0;
   --font-display: "Arial Narrow", "Liberation Sans Narrow", "PT Sans Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-  --grid-line: rgba(255, 255, 255, 0.16);
+  --grid-line: rgba(0, 87, 184, 0.06);
   --frame-w: 5px;
 
   --bs-primary: #0000f2;
@@ -29,7 +31,7 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--color-paper);
+  background-color: var(--color-canvas);
 }
 
 /* Рамка кадра вокруг вьюпорта — фирменный приём Hermes */
@@ -37,9 +39,34 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  border: var(--frame-w) solid var(--color-primary);
+  border: var(--frame-w) solid var(--color-primary-dark);
   pointer-events: none;
   z-index: 2000;
+}
+
+/* Основной контент — бумажные панели на синем холсте, как секции Hermes */
+main.container.my-5,
+main > section.container.my-5 {
+  background-color: var(--color-paper);
+  border-radius: var(--bs-border-radius);
+  padding: 1.5rem;
+}
+
+/* Преимущества проекта — единственный блок цвета холста с бледно-кровавой обводкой */
+#advantages {
+  background-color: var(--color-canvas);
+  border: 2px solid var(--color-outline);
+  color: var(--color-paper);
+}
+
+/* Кнопка «наверх»: синяя на синем холсте невидима — белая с синей стрелкой */
+a.btn[aria-label="Наверх"] {
+  --bs-btn-bg: #ffffff;
+  --bs-btn-border-color: #ffffff;
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-hover-bg: var(--color-surface);
+  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-hover-color: var(--color-primary-dark);
 }
 
 /* Сжатые капсовые заголовки в духе Rules Gothic */
@@ -161,6 +188,16 @@ h3, h4, h5, h6 {
   font-size: 0.82rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  border: 1px solid transparent;
+  border-radius: var(--bs-border-radius);
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Наведение на кнопки навигации — обводка, как у главных кнопок */
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .navbar-brand {
@@ -175,46 +212,46 @@ h3, h4, h5, h6 {
   font-size: 0.85rem;
 }
 
-/* Синий герой с белой инженерной сеткой — как главная Hermes */
+/* Герой — светлая поверхность с синеватой инженерной сеткой 32px */
 .bg-soft {
-  background-color: var(--color-primary);
+  background-color: var(--color-paper);
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 32px 32px;
-  color: #ffffff;
 }
 
-.bg-soft .lead,
-.bg-soft .text-muted {
-  color: rgba(255, 255, 255, 0.82) !important;
-}
-
-.bg-soft .btn-primary {
-  --bs-btn-bg: #ffffff;
-  --bs-btn-border-color: #ffffff;
-  --bs-btn-color: var(--color-primary);
-  --bs-btn-hover-bg: var(--color-surface-accent);
-  --bs-btn-hover-border-color: #ffffff;
-  --bs-btn-hover-color: var(--color-primary-dark);
-  --bs-btn-active-bg: var(--color-surface);
-  --bs-btn-active-border-color: #ffffff;
-  --bs-btn-active-color: var(--color-primary-dark);
-}
-
-.bg-soft .btn-outline-primary {
-  --bs-btn-color: #ffffff;
-  --bs-btn-border-color: rgba(255, 255, 255, 0.65);
-  --bs-btn-hover-bg: #ffffff;
-  --bs-btn-hover-border-color: #ffffff;
-  --bs-btn-hover-color: var(--color-primary);
-  --bs-btn-active-bg: rgba(255, 255, 255, 0.85);
-  --bs-btn-active-border-color: #ffffff;
-  --bs-btn-active-color: var(--color-primary);
-}
-
-.bg-soft .carousel {
-  border-color: rgba(255, 255, 255, 0.35);
+/* На широких экранах белый герой мягко уходит в холст к краям,
+   сетка не обрывается — в зоне перехода её тон перетекает
+   из синеватого в светлый (маски по слоям) */
+@media (min-width: 1200px) {
+  .bg-soft {
+    --hero-fade: min(10rem, calc((100% - 1140px) / 2));
+    background-color: var(--color-canvas);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+      linear-gradient(90deg,
+        var(--color-canvas) 0,
+        var(--color-paper) var(--hero-fade),
+        var(--color-paper) calc(100% - var(--hero-fade)),
+        var(--color-canvas) 100%);
+    background-size: 32px 32px, 32px 32px, 32px 32px, 32px 32px, 100% 100%;
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent 0, #000 var(--hero-fade), #000 calc(100% - var(--hero-fade)), transparent 100%),
+      linear-gradient(90deg, transparent 0, #000 var(--hero-fade), #000 calc(100% - var(--hero-fade)), transparent 100%),
+      linear-gradient(90deg, #000 0, transparent var(--hero-fade), transparent calc(100% - var(--hero-fade)), #000 100%),
+      linear-gradient(90deg, #000 0, transparent var(--hero-fade), transparent calc(100% - var(--hero-fade)), #000 100%),
+      linear-gradient(#000, #000);
+    mask-image:
+      linear-gradient(90deg, transparent 0, #000 var(--hero-fade), #000 calc(100% - var(--hero-fade)), transparent 100%),
+      linear-gradient(90deg, transparent 0, #000 var(--hero-fade), #000 calc(100% - var(--hero-fade)), transparent 100%),
+      linear-gradient(90deg, #000 0, transparent var(--hero-fade), transparent calc(100% - var(--hero-fade)), #000 100%),
+      linear-gradient(90deg, #000 0, transparent var(--hero-fade), transparent calc(100% - var(--hero-fade)), #000 100%),
+      linear-gradient(#000, #000);
+  }
 }
 
 .hero-repo {
@@ -224,12 +261,12 @@ h3, h4, h5, h6 {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--color-hairline);
   border-radius: 6px;
 }
 
 .hero-repo a {
-  color: #ffffff;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -237,10 +274,14 @@ h3, h4, h5, h6 {
   text-decoration: underline;
 }
 
-#advantages > h2::before,
+#advantages > h2::before {
+  content: "#1  ";
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-surface);
+}
 #popular h2::before,
 #delivery > h2::before {
-  content: "#1  ";
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--color-primary);
