@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина — ShopProject</title>
+  <meta name="description" content="Корзина учебного интернет-магазина ShopProject: выбранные товары, количество, промокод SHOP10 и итоговая сумма.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <header class="site-header">
+    <a class="brand" href="index.html">ShopProject</a>
+    <div class="header-actions">
+      <a class="cart-link" href="cart.html" data-cart-count>Корзина: 0</a>
+      <button class="btn nav-toggle" type="button" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false">Меню</button>
+    </div>
+    <nav class="site-nav" aria-label="Основная навигация">
+      <ul class="nav-list" id="primary-navigation">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="product.html">Товар</a></li>
+        <li><a href="cart.html" aria-current="page">Корзина</a></li>
+        <li><a href="order.html">Заявка</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="layout" id="main" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol>
+        <li><a href="index.html">Главная</a></li>
+        <li aria-current="page">Корзина</li>
+      </ol>
+    </nav>
+    <section aria-labelledby="cart-title">
+      <h1 id="cart-title">Корзина</h1>
+      <p class="lead">Выбранные товары сохраняются в localStorage и остаются в корзине между открытиями страницы.</p>
+
+      <p class="note" data-cart-empty hidden>Корзина пуста. Выберите товар в <a href="catalog.html">каталоге</a> и вернитесь сюда.</p>
+
+      <div data-cart-content>
+        <div class="cart-list" data-cart-items></div>
+
+        <form class="promo-form" id="promo-form">
+          <div class="field">
+            <label for="promo-code">Промокод</label>
+            <input id="promo-code" name="promo" type="text" placeholder="Например, SHOP10" autocomplete="off">
+          </div>
+          <div class="actions">
+            <button class="btn btn--primary" type="submit">Применить</button>
+            <button class="btn btn--ghost" type="button" data-cart-clear>Очистить корзину</button>
+          </div>
+          <p class="form-message" id="promo-message" role="status"></p>
+        </form>
+
+        <div class="cart-summary">
+          <p class="cart-summary__row"><span>Сумма товаров:</span> <strong data-cart-subtotal>0 руб.</strong></p>
+          <p class="cart-summary__row" data-discount-row hidden><span>Скидка по промокоду:</span> <strong data-cart-discount>−0 руб.</strong></p>
+          <p class="cart-summary__row cart-summary__row--total"><span>Итого:</span> <strong data-cart-total>0 руб.</strong></p>
+        </div>
+      </div>
+
+      <p class="form-message" data-cart-message role="status"></p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2026 ShopProject. Учебный проект.</p>
+    <p><small>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</small></p>
+    <nav aria-label="Ссылки в подвале">
+      <a href="catalog.html">Каталог</a> ·
+      <a href="cart.html">Корзина</a> ·
+      <a href="order.html">Заявка</a> ·
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </footer>
+  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
+</body>
+</html>

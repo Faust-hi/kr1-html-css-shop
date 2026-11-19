@@ -3,125 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Смартфон Aurora 67 — ShopProject</title>
-  <meta name="description" content="Смартфон Aurora 67: характеристики, цена и оформление заявки в учебном интернет-магазине ShopProject.">
+  <title>Товар — ShopProject</title>
+  <meta name="description" content="Карточка товара учебного интернет-магазина ShopProject: характеристики, цена со скидкой, рейтинг и оформление заявки.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/product.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <header class="site-header">
     <a class="brand" href="index.html">ShopProject</a>
+    <div class="header-actions">
+      <a class="cart-link" href="cart.html" data-cart-count>Корзина: 0</a>
+      <button class="btn nav-toggle" type="button" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false">Меню</button>
+    </div>
     <nav class="site-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
+      <ul class="nav-list" id="primary-navigation">
         <li><a href="index.html">Главная</a></li>
         <li><a href="catalog.html">Каталог</a></li>
         <li><a href="product.html" aria-current="page">Товар</a></li>
+        <li><a href="cart.html">Корзина</a></li>
         <li><a href="order.html">Заявка</a></li>
         <li><a href="contacts.html">Контакты</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="layout" id="main" tabindex="-1">
+  <main class="layout" id="main" tabindex="-1" data-product-page>
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <ol>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="catalog.html">Каталог</a></li>
-      <li aria-current="page">Смартфон Aurora 67</li>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li aria-current="page"><span data-current-product>Товар</span></li>
       </ol>
     </nav>
-    <div class="product-layout">
-      <img class="product-photo" src="images/aurora-67.jpg"
-           srcset="images/aurora-67-320w.jpg 320w, images/aurora-67.jpg 335w"
-           sizes="(min-width: 992px) 540px, 92vw"
-           alt="Смартфон Aurora 67 с экраном AMOLED" width="335" height="597" decoding="async">
-      <div>
-        <span class="badge">Хит</span>
-        <h1>Смартфон Aurora 67</h1>
-        <p class="lead">Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
-        <p class="price">24 990 руб.</p>
-        <div class="actions">
-          <a class="btn btn--primary" href="order.html">Оформить заявку</a>
-          <a class="btn" href="catalog.html">Назад в каталог</a>
+
+    <p class="note" data-product-not-found hidden>
+      Товар с таким идентификатором не найден. <a href="catalog.html">Вернуться в каталог</a>.
+    </p>
+
+    <div data-product-content>
+      <div class="product-layout">
+        <img class="product-photo" src="images/aurora-67.jpg"
+             srcset="images/aurora-67-320w.jpg 320w, images/aurora-67.jpg 335w"
+             sizes="(min-width: 992px) 540px, 92vw"
+             alt="Смартфон Aurora 67" width="335" height="597" decoding="async">
+        <div>
+          <span class="badge product-badge"></span>
+          <h1 id="product-title">Товар</h1>
+          <p class="lead product-lead"></p>
+          <p class="price product-price"></p>
+          <div class="actions">
+            <button class="btn btn--primary" type="button" data-action="add-to-cart" data-product-id="1">В корзину</button>
+            <a class="btn" data-order-link href="order.html">Оформить заявку</a>
+            <a class="btn" href="catalog.html">Назад в каталог</a>
+          </div>
+          <p class="form-message" data-cart-message role="status"></p>
+          <p class="note">Учебная карточка товара. Данные используются для демонстрации адаптивной вёрстки.</p>
         </div>
-        <p class="note">Учебная карточка товара. Данные используются для демонстрации адаптивной вёрстки.</p>
       </div>
+
+      <section class="section" aria-labelledby="specs-title">
+        <h2 id="specs-title">Характеристики</h2>
+        <div class="table-wrapper">
+          <table class="spec-table">
+            <caption>Характеристики товара</caption>
+            <thead><tr><th scope="col">Параметр</th><th scope="col">Значение</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Частые вопросы</h2>
+        <details open>
+          <summary>Можно ли оформить заявку без регистрации?</summary>
+          <p>Да, в учебном проекте заявка оформляется без регистрации — достаточно заполнить форму на странице «Заявка».</p>
+        </details>
+        <details>
+          <summary>Как адаптирована таблица характеристик?</summary>
+          <p>На узком экране строки превращаются в карточки, а с 768px таблица возвращается к обычному виду.</p>
+        </details>
+        <details>
+          <summary>Сколько идёт доставка?</summary>
+          <p>Курьером по Москве — в день заказа, по России — 1–3 рабочих дня. Самовывоз бесплатно.</p>
+        </details>
+      </section>
+
+      <section class="section" aria-labelledby="similar-title">
+        <h2 id="similar-title">Похожие товары</h2>
+        <ul class="card-grid">
+          <li class="card">
+            <img class="card-media" src="images/BassLine-Pro.jpg"
+                 srcset="images/BassLine-Pro-320w.jpg 320w, images/BassLine-Pro.jpg 439w"
+                 sizes="(min-width: 1200px) 360px, (min-width: 768px) 45vw, 92vw"
+                 alt="Наушники BassLine Pro" width="439" height="455"
+                 loading="lazy" decoding="async">
+            <div class="card-body">
+              <span class="badge">Новинка</span>
+              <h3>Наушники BassLine Pro</h3>
+              <p>Активное шумоподавление, до 30 часов работы.</p>
+              <p class="price">7 490 руб.</p>
+              <div class="card-actions">
+                <a class="btn btn--primary" href="product.html?id=5">Подробнее</a>
+              </div>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card-media" src="images/volva-h16.jpg"
+                 srcset="images/volva-h16-320w.jpg 320w, images/volva-h16.jpg 447w"
+                 sizes="(min-width: 1200px) 360px, (min-width: 768px) 45vw, 92vw"
+                 alt="Смартфон volva h16" width="447" height="447"
+                 loading="lazy" decoding="async">
+            <div class="card-body">
+              <span class="badge">Скидка</span>
+              <h3>volva h16</h3>
+              <p>Экран AMOLED, защита от воды IP68.</p>
+              <p class="price">12 990 руб.</p>
+              <div class="card-actions">
+                <a class="btn btn--primary" href="product.html?id=3">Подробнее</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
     </div>
-
-    <section class="section" aria-labelledby="specs-title">
-      <h2 id="specs-title">Характеристики</h2>
-      <div class="table-wrapper">
-        <table class="spec-table">
-          <caption>Характеристики смартфона Aurora 67</caption>
-          <thead><tr><th scope="col">Параметр</th><th scope="col">Значение</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Категория</th><td data-label="Значение">Смартфоны</td></tr>
-            <tr><th scope="row">Экран</th><td data-label="Значение">AMOLED 6.5"</td></tr>
-            <tr><th scope="row">Память</th><td data-label="Значение">128 ГБ</td></tr>
-            <tr><th scope="row">Камера</th><td data-label="Значение">50 Мп</td></tr>
-            <tr><th scope="row">Батарея</th><td data-label="Значение">5000 мА·ч</td></tr>
-            <tr><th scope="row">Цена</th><td data-label="Значение">24 990 руб.</td></tr>
-            <tr><th scope="row">Наличие</th><td data-label="Значение"><span class="badge">В наличии</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section class="section faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">Частые вопросы</h2>
-      <details open>
-        <summary>Можно ли оформить заявку без регистрации?</summary>
-        <p>Да, в учебном проекте заявка оформляется без регистрации — достаточно заполнить форму на странице «Заявка».</p>
-      </details>
-      <details>
-        <summary>Как адаптирована таблица характеристик?</summary>
-        <p>На узком экране строки превращаются в карточки, а с 768px таблица возвращается к обычному виду.</p>
-      </details>
-      <details>
-        <summary>Сколько идёт доставка?</summary>
-        <p>Курьером по Москве — в день заказа, по России — 1–3 рабочих дня. Самовывоз бесплатный.</p>
-      </details>
-    </section>
-
-    <section class="section" aria-labelledby="similar-title">
-      <h2 id="similar-title">Похожие товары</h2>
-      <ul class="card-grid">
-      <li class="card">
-        <img class="card-media" src="images/BassLine-Pro.jpg"
-             srcset="images/BassLine-Pro-320w.jpg 320w, images/BassLine-Pro.jpg 439w"
-             sizes="(min-width: 992px) 540px, 92vw"
-             alt="Наушники BassLine Pro" width="439" height="455"
-             loading="lazy" decoding="async">
-        <div class="card-body">
-          <span class="badge">Новинка</span>
-          <h3>Наушники BassLine Pro</h3>
-          <p>Активное шумоподавление, до 30 часов работы.</p>
-          <p class="price">7 490 руб.</p>
-          <div class="card-actions">
-            <a class="btn btn--primary" href="order.html">Заказать</a>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card-media" src="images/volva-h16.jpg"
-             srcset="images/volva-h16-320w.jpg 320w, images/volva-h16.jpg 447w"
-             sizes="(min-width: 992px) 540px, 92vw"
-             alt="Смартфон volva h16" width="447" height="447"
-             loading="lazy" decoding="async">
-        <div class="card-body">
-          <span class="badge">Скидка</span>
-          <h3>volva h16</h3>
-          <p>Экран AMOLED, защита от воды IP68.</p>
-          <p class="price">12 990 руб.</p>
-          <div class="card-actions">
-            <a class="btn btn--primary" href="order.html">Заказать</a>
-          </div>
-        </div>
-      </li>
-      </ul>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -129,6 +140,7 @@
     <p><small>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</small></p>
     <nav aria-label="Ссылки в подвале">
       <a href="catalog.html">Каталог</a> ·
+      <a href="cart.html">Корзина</a> ·
       <a href="order.html">Заявка</a> ·
       <a href="contacts.html">Контакты</a>
     </nav>

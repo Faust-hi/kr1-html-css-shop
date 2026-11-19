@@ -1,13 +1,26 @@
+/* Адаптивность: база в style.css — мобильная. Здесь расширение сетки до 2/3/4 колонок. */
 
 @media (min-width: 768px) {
-  :root { --frame-w: 4px; }
+  .site-header { grid-template-columns: auto 1fr; align-items: center; }
+  .site-nav { grid-column: 1 / -1; justify-self: stretch; min-width: 0; margin-top: 0; }
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 var(--space-md);
+    margin: 0;
+    border-top: 0;
+  }
+  .nav-list a { padding: 0.45rem 0; border-bottom: 0; }
+  .btn.nav-toggle { display: none; }
 
-  .site-header { flex-wrap: nowrap; }
-  .site-nav { flex: 0 1 auto; }
-  .nav-list { justify-content: flex-end; }
-  .nav-list a { padding: 0.55rem 0.75rem; font-size: 0.82rem; }
+  .card-grid--advantages > .card,
+  .card-grid--advantages > .card:last-child { border-bottom: 1px solid var(--color-hairline); }
 
-  .hero-grid { grid-template-columns: 1.2fr 1fr; }
+  .hero { padding: var(--space-xl); }
+  .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: var(--space-xl); }
+  .gallery > li { flex-basis: 100%; }
+
   .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .product-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -20,22 +33,55 @@
   .spec-table thead { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
   .spec-table { display: table; }
   .spec-table tbody { display: table-row-group; }
-  .spec-table tr { display: table-row; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
-  .spec-table th, .spec-table td { display: table-cell; width: auto; padding: 0.55rem; border-bottom: 1px solid var(--color-hairline); }
-  .spec-table th[scope="row"] { padding: 0.55rem; font: inherit; text-transform: none; color: inherit; }
+  .spec-table tr {
+    display: table-row;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+  .spec-table th, .spec-table td {
+    display: table-cell;
+    width: auto;
+    padding: 0.55rem;
+    border-bottom: 1px solid var(--color-hairline);
+  }
+  .spec-table th[scope="row"] {
+    padding: 0.55rem;
+    font: inherit;
+    text-transform: none;
+    letter-spacing: normal;
+    color: inherit;
+  }
   .spec-table td::before { content: none; }
+
+  .dialog-grid { grid-template-columns: 240px minmax(0, 1fr); }
+  .dialog-grid img { max-height: 420px; }
+
+  .cart-item { grid-template-columns: 96px minmax(0, 1fr) auto; align-items: center; }
+  .cart-item__image { width: 96px; height: 96px; }
+  .cart-item__total {
+    grid-column: auto;
+    align-self: center;
+    padding-top: 0;
+    text-align: right;
+    border-top: 0;
+  }
 }
 
 @media (min-width: 1024px) {
-  :root { --frame-w: 5px; }
-
   .site-header { position: sticky; top: 0; }
+  main[id], section[id] { scroll-margin-top: 144px; }
+  .filters { top: 144px; }
   .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .card-grid--advantages { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .card-grid--advantages { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+  .card-grid--advantages > .card,
+  .card-grid--advantages > .card:last-child { border-bottom: 1px solid var(--color-hairline); }
+  .layout > * { padding-inline: var(--space-lg); }
 }
 
 @media (min-width: 1200px) {
-  .layout { padding-block: var(--space-xl); }
+  .layout { padding-bottom: var(--space-xl); }
+  .hero { padding-inline: var(--space-xl); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,132 +1,34 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Каталог товаров — ShopProject</title>
-  <meta name="description" content="Каталог товаров ShopProject: смартфоны, наушники и холодильники с фильтрами по категории и цене.">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <meta name="description" content="Каталог товаров ShopProject: смартфоны, наушники и холодильники с поиском, фильтрами, сортировкой и корзиной.">
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script><script src="js/storage.js" defer></script><script src="js/main.js" defer></script><script src="js/cart.js" defer></script><script src="js/catalog.js" defer></script><script src="js/modal.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
-
-  <header class="site-header">
-    <a class="brand" href="index.html">ShopProject</a>
-    <nav class="site-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="catalog.html" aria-current="page">Каталог</a></li>
-        <li><a href="product.html">Товар</a></li>
-        <li><a href="order.html">Заявка</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-      </ul>
-    </nav>
-  </header>
-
+  <header class="site-header"><a class="brand" href="index.html">ShopProject</a><div class="header-actions"><a class="cart-link" href="cart.html" data-cart-count>Корзина: 0</a><button class="btn nav-toggle" type="button" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false">Меню</button></div><nav class="site-nav" aria-label="Основная навигация"><ul class="nav-list" id="primary-navigation"><li><a href="index.html">Главная</a></li><li><a href="catalog.html" aria-current="page">Каталог</a></li><li><a href="product.html">Товар</a></li><li><a href="order.html">Заявка</a></li><li><a href="contacts.html">Контакты</a></li></ul></nav></header>
   <main class="layout" id="main" tabindex="-1">
-    <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <ol>
-      <li><a href="index.html">Главная</a></li>
-      <li aria-current="page">Каталог</li>
-      </ol>
-    </nav>
-    <div class="section-head">
-      <h1>Каталог товаров</h1>
-      <a class="btn" href="order.html">Оставить заявку</a>
-    </div>
-
+    <nav class="breadcrumbs" aria-label="Хлебные крошки"><ol><li><a href="index.html">Главная</a></li><li aria-current="page">Каталог</li></ol></nav>
+    <div class="section-head"><h1>Каталог товаров</h1><a class="btn" href="order.html">Оставить заявку</a></div>
     <div class="catalog-layout">
-      <aside class="filters" aria-labelledby="filters-title">
-        <h2 id="filters-title">Фильтры</h2>
-        <form action="#" method="get">
-          <fieldset>
-            <legend>Категория</legend>
-            <label for="cat-phones"><input id="cat-phones" type="checkbox" name="category" value="smartphones">Смартфоны</label>
-            <label for="cat-headphones"><input id="cat-headphones" type="checkbox" name="category" value="headphones">Наушники</label>
-            <label for="cat-fridges"><input id="cat-fridges" type="checkbox" name="category" value="fridges">Холодильники</label>
-          </fieldset>
-          <fieldset>
-            <legend>Цена, руб.</legend>
-            <div class="field"><label for="price-from">От</label><input id="price-from" type="number" min="0" name="price-from" placeholder="0"></div>
-            <div class="field"><label for="price-to">До</label><input id="price-to" type="number" min="0" name="price-to" placeholder="30000"></div>
-          </fieldset>
-          <div class="actions">
-            <button class="btn btn--primary" type="submit">Применить</button>
-            <button class="btn btn--ghost" type="reset">Сбросить</button>
-          </div>
+      <aside class="filters" aria-labelledby="filters-title"><h2 id="filters-title">Фильтры</h2>
+        <form id="catalog-filters" action="#catalog-results" method="get">
+          <div class="field"><label for="catalog-search">Поиск по названию</label><input id="catalog-search" type="search" name="query" placeholder="Например, Aurora" autocomplete="off"></div>
+          <div class="field"><label for="category-filter">Категория</label><select id="category-filter" name="category"><option value="all">Все категории</option><option value="smartphones">Смартфоны</option><option value="headphones">Наушники</option><option value="fridges">Холодильники</option></select></div>
+          <div class="field"><label for="sort-select">Сортировка</label><select id="sort-select" name="sort"><option value="default">По умолчанию</option><option value="price-asc">Сначала дешевле</option><option value="price-desc">Сначала дороже</option><option value="title-asc">По названию А–Я</option></select></div>
+          <fieldset><legend>Цена со скидкой, руб.</legend><div class="field"><label for="price-from">От</label><input id="price-from" type="number" min="0" name="price-from" placeholder="0" inputmode="numeric"></div><div class="field"><label for="price-to">До</label><input id="price-to" type="number" min="0" name="price-to" placeholder="70000" inputmode="numeric"></div></fieldset>
+          <label class="checkbox-field" for="available-only"><input id="available-only" type="checkbox" name="available"><span>Только в наличии</span></label>
+          <label class="checkbox-field" for="favorites-only"><input id="favorites-only" type="checkbox" name="favorites"><span>Только избранное</span></label>
+          <div class="actions"><button class="btn btn--primary" type="submit">Применить</button><button class="btn btn--ghost" type="button" id="filters-reset">Сбросить</button></div>
         </form>
       </aside>
-
-      <section aria-labelledby="results-title">
-        <h2 id="results-title">Найдено товаров: 3</h2>
-        <ul class="card-grid">
-      <li class="card">
-        <img class="card-media" src="images/aurora-67.jpg"
-             srcset="images/aurora-67-320w.jpg 320w, images/aurora-67.jpg 335w"
-             sizes="(min-width: 1200px) 300px, (min-width: 768px) 45vw, 92vw"
-             alt="Смартфон Aurora 67 в упаковке" width="335" height="597"
-             loading="lazy" decoding="async">
-        <div class="card-body">
-          <span class="badge">Хит</span>
-          <h3>Смартфон Aurora 67</h3>
-          <p>Экран AMOLED 6.5", 128 ГБ, камера 50 Мп, батарея 5000 мА·ч.</p>
-          <p class="price">24 990 руб.</p>
-          <div class="card-actions">
-            <a class="btn btn--primary" href="product.html">Подробнее</a>
-            <a class="btn" href="order.html">Заказать</a>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card-media" src="images/BassLine-Pro.jpg"
-             srcset="images/BassLine-Pro-320w.jpg 320w, images/BassLine-Pro.jpg 439w"
-             sizes="(min-width: 1200px) 300px, (min-width: 768px) 45vw, 92vw"
-             alt="Наушники BassLine Pro" width="439" height="455"
-             loading="lazy" decoding="async">
-        <div class="card-body">
-          <span class="badge">Новинка</span>
-          <h3>Наушники BassLine Pro</h3>
-          <p>Беспроводные, активное шумоподавление, до 30 часов работы.</p>
-          <p class="price">7 490 руб.</p>
-          <div class="card-actions">
-            <a class="btn btn--primary" href="product.html">Подробнее</a>
-            <a class="btn" href="order.html">Заказать</a>
-          </div>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card-media" src="images/volva-h16.jpg"
-             srcset="images/volva-h16-320w.jpg 320w, images/volva-h16.jpg 447w"
-             sizes="(min-width: 1200px) 300px, (min-width: 768px) 45vw, 92vw"
-             alt="Смартфон volva h16" width="447" height="447"
-             loading="lazy" decoding="async">
-        <div class="card-body">
-          <span class="badge">Скидка</span>
-          <h3>volva h16</h3>
-          <p>Экран AMOLED, защита от воды IP68.</p>
-          <p class="price">12 990 руб.</p>
-          <div class="card-actions">
-            <a class="btn btn--primary" href="product.html">Подробнее</a>
-            <a class="btn" href="order.html">Заказать</a>
-          </div>
-        </div>
-      </li>
-        </ul>
-      </section>
+      <section id="catalog-results" aria-labelledby="results-title"><h2 id="results-title" tabindex="-1">Товары</h2><p class="catalog-count" aria-live="polite">Загрузка товаров…</p><p class="catalog-empty note" hidden>По выбранным условиям товары не найдены. Измените запрос или сбросьте фильтры.</p><ul class="card-grid products-grid" data-products-container></ul><nav class="pagination" data-pagination aria-label="Страницы каталога" hidden></nav><p class="form-message" data-cart-message role="status"></p></section>
     </div>
   </main>
-
-  <footer class="site-footer">
-    <p>&copy; 2026 ShopProject. Учебный проект.</p>
-    <p><small>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</small></p>
-    <nav aria-label="Ссылки в подвале">
-      <a href="catalog.html">Каталог</a> ·
-      <a href="order.html">Заявка</a> ·
-      <a href="contacts.html">Контакты</a>
-    </nav>
-  </footer>
-
-  <a class="to-top" href="#top" aria-label="Наверх">↑</a>
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title"><div class="dialog-grid"><img id="dialog-image" src="images/aurora-67.jpg" alt="" width="335" height="597"><div><p class="product-card__category" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><p id="dialog-rating"></p><p class="price" id="dialog-price"></p><p id="dialog-status"></p><div class="actions"><a class="btn btn--primary" id="dialog-details" href="product.html">Подробнее</a><button class="btn" type="button" data-action="add-to-cart" data-product-id="1">В корзину</button><button class="btn btn--ghost" type="button" data-dialog-close>Закрыть</button></div><p class="form-message" data-dialog-cart-message></p></div></div></dialog>
+  <footer class="site-footer"><p>&copy; 2026 ShopProject. Учебный проект.</p><p><small>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</small></p><nav aria-label="Ссылки в подвале"><a href="catalog.html">Каталог</a> · <a href="cart.html">Корзина</a> · <a href="order.html">Заявка</a> · <a href="contacts.html">Контакты</a></nav></footer><a class="to-top" href="#top" aria-label="Наверх">↑</a>
 </body>
 </html>

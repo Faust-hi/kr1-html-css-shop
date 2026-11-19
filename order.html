@@ -7,17 +7,27 @@
   <meta name="description" content="Форма заявки учебного интернет-магазина ShopProject: имя, e-mail, телефон, товар, комментарий.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/validation.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <header class="site-header">
     <a class="brand" href="index.html">ShopProject</a>
+    <div class="header-actions">
+      <a class="cart-link" href="cart.html" data-cart-count>Корзина: 0</a>
+      <button class="btn nav-toggle" type="button" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false">Меню</button>
+    </div>
     <nav class="site-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
+      <ul class="nav-list" id="primary-navigation">
         <li><a href="index.html">Главная</a></li>
         <li><a href="catalog.html">Каталог</a></li>
         <li><a href="product.html">Товар</a></li>
+        <li><a href="cart.html">Корзина</a></li>
         <li><a href="order.html" aria-current="page">Заявка</a></li>
         <li><a href="contacts.html">Контакты</a></li>
       </ul>
@@ -33,28 +43,29 @@
     </nav>
     <section aria-labelledby="order-title">
       <h1 id="order-title">Форма заявки</h1>
-      <p class="lead">Заполните форму. Поля со звёздочкой обязательны.</p>
-      <form class="form-grid" action="#" method="post">
+      <p class="lead">Заполните форму. Поля со звёздочкой обязательны. Проверка выполняется в браузере, данные никуда не отправляются.</p>
+      <form class="form-grid" id="order-form" action="#" method="post" data-validate-form="order" novalidate>
         <div class="field">
           <label for="order-name">Имя *</label>
           <input id="order-name" name="name" type="text" autocomplete="given-name" placeholder="Введите ваше имя" required>
+          <p class="field-error" id="err-name" data-error-for="name"></p>
         </div>
         <div class="field">
           <label for="order-email">E-mail *</label>
           <input id="order-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <p class="field-error" id="err-email" data-error-for="email"></p>
         </div>
         <div class="field">
-          <label for="order-phone">Телефон</label>
-          <input id="order-phone" name="phone" type="tel" autocomplete="tel" placeholder="900 000-00-00">
+          <label for="order-phone">Телефон *</label>
+          <input id="order-phone" name="phone" type="tel" autocomplete="tel" placeholder="900 000-00-00" required>
+          <p class="field-error" id="err-phone" data-error-for="phone"></p>
         </div>
         <div class="field">
           <label for="order-product">Товар *</label>
           <select id="order-product" name="product" required>
             <option value="">Выберите товар</option>
-            <option value="aurora-67">Смартфон Aurora 67</option>
-            <option value="bassline-pro">Наушники BassLine Pro</option>
-            <option value="volva-h16">volva h16</option>
           </select>
+          <p class="field-error" id="err-product" data-error-for="product"></p>
         </div>
         <div class="field">
           <label for="order-date">Дата связи</label>
@@ -76,12 +87,14 @@
           <input id="order-agree" name="agreement" type="checkbox" required>
           <span>Я согласен на обработку данных *</span>
         </label>
+        <p class="field-error field--full" id="err-agreement" data-error-for="agreement"></p>
         <div class="actions form-actions">
           <button class="btn btn--primary" type="submit">Отправить заявку</button>
           <button class="btn btn--ghost" type="reset">Очистить</button>
         </div>
+        <p class="form-message field--full" role="status"></p>
       </form>
-      <p class="note">Заявка носит учебный характер: серверная обработка не подключена, здесь проверяются вёрстка и нативная валидация браузера. Обработка формы появится в КР4.</p>
+      <p class="note">Заявка носит учебный характер.</p>
     </section>
   </main>
 
@@ -90,6 +103,7 @@
     <p><small>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</small></p>
     <nav aria-label="Ссылки в подвале">
       <a href="catalog.html">Каталог</a> ·
+      <a href="cart.html">Корзина</a> ·
       <a href="order.html">Заявка</a> ·
       <a href="contacts.html">Контакты</a>
     </nav>

@@ -4,20 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Контакты — ShopProject</title>
-  <meta name="description" content="Контакты учебного интернет-магазина ShopProject: телефон, e-mail, пункт выдачи и режим работы.">
+  <meta name="description" content="Контакты учебного интернет-магазина ShopProject: телефон, e-mail, пункт выдачи, режим работы и форма обратной связи.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/validation.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Перейти к содержимому</a>
 
   <header class="site-header">
     <a class="brand" href="index.html">ShopProject</a>
+    <div class="header-actions">
+      <a class="cart-link" href="cart.html" data-cart-count>Корзина: 0</a>
+      <button class="btn nav-toggle" type="button" data-nav-toggle aria-controls="primary-navigation" aria-expanded="false">Меню</button>
+    </div>
     <nav class="site-nav" aria-label="Основная навигация">
-      <ul class="nav-list">
+      <ul class="nav-list" id="primary-navigation">
         <li><a href="index.html">Главная</a></li>
         <li><a href="catalog.html">Каталог</a></li>
         <li><a href="product.html">Товар</a></li>
+        <li><a href="cart.html">Корзина</a></li>
         <li><a href="order.html">Заявка</a></li>
         <li><a href="contacts.html" aria-current="page">Контакты</a></li>
       </ul>
@@ -27,8 +37,8 @@
   <main class="layout" id="main" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <ol>
-      <li><a href="index.html">Главная</a></li>
-      <li aria-current="page">Контакты</li>
+        <li><a href="index.html">Главная</a></li>
+        <li aria-current="page">Контакты</li>
       </ol>
     </nav>
     <h1>Контакты</h1>
@@ -65,7 +75,44 @@
       </section>
     </div>
 
-    <p class="note">Заявку можно оставить на странице <a href="order.html">«Заявка»</a>.</p>
+    <section class="section" aria-labelledby="contact-form-title">
+      <h2 id="contact-form-title">Форма обратной связи</h2>
+      <p class="lead">Поля со звёздочкой обязательны. Проверка выполняется в браузере, данные никуда не отправляются.</p>
+      <form class="form-grid" id="contact-form" action="#" method="post" data-validate-form="contact" novalidate>
+        <div class="field">
+          <label for="contact-name">Имя *</label>
+          <input id="contact-name" name="name" type="text" autocomplete="given-name" placeholder="Введите ваше имя" required>
+          <p class="field-error" id="err-c-name" data-error-for="name"></p>
+        </div>
+        <div class="field">
+          <label for="contact-email">E-mail *</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <p class="field-error" id="err-c-email" data-error-for="email"></p>
+        </div>
+        <div class="field">
+          <label for="contact-phone">Телефон *</label>
+          <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="900 000-00-00" required>
+          <p class="field-error" id="err-c-phone" data-error-for="phone"></p>
+        </div>
+        <div class="field field--full">
+          <label for="contact-message">Сообщение *</label>
+          <textarea id="contact-message" name="message" rows="5" placeholder="Опишите ваш вопрос — не короче 10 символов" required></textarea>
+          <p class="field-error" id="err-c-message" data-error-for="message"></p>
+        </div>
+        <label class="checkbox-field field--full" for="contact-agree">
+          <input id="contact-agree" name="agreement" type="checkbox" required>
+          <span>Я согласен на обработку данных *</span>
+        </label>
+        <p class="field-error field--full" id="err-c-agreement" data-error-for="agreement"></p>
+        <div class="actions form-actions">
+          <button class="btn btn--primary" type="submit">Отправить сообщение</button>
+          <button class="btn btn--ghost" type="reset">Очистить</button>
+        </div>
+        <p class="form-message field--full" role="status"></p>
+      </form>
+    </section>
+
+    <p class="note">Заявку на товар можно оставить на странице <a href="order.html">«Заявка»</a>.</p>
   </main>
 
   <footer class="site-footer">
@@ -73,6 +120,7 @@
     <p><small>Телефон: +53 (900) 123-45-67 · E-mail: infopole@shopproject.ru</small></p>
     <nav aria-label="Ссылки в подвале">
       <a href="catalog.html">Каталог</a> ·
+      <a href="cart.html">Корзина</a> ·
       <a href="order.html">Заявка</a> ·
       <a href="contacts.html">Контакты</a>
     </nav>
